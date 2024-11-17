@@ -1,0 +1,8 @@
+﻿@model CumulativeProject.Models.Student
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.FirstName @Model.LastName</h1>
+<p><strong>Student Number:</strong> @Model.StudentNumber</p>
+<p><strong>Enrollment Date:</strong> @Model.EnrolDate.ToString("yyyy-MM-dd")</p>
