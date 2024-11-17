@@ -3,9 +3,9 @@ This project involves building a Minimum Viable Product (MVP) for managing teach
 
 ## Project Overview
 This project implements the following:
-1. CRUD Functionality for Teachers, Students, and Courses.
-2. Integration of ASP.NET Core Web API and MVC to render dynamic, server-side web pages.
-3. Additional features to enhance usability, error handling, and data management.
+1.  CRUD Functionality for Teachers, Students, and Courses.
+2.  Integration of ASP.NET Core Web API and MVC to render dynamic, server-side web pages.
+3.  Additional features to enhance usability, error handling, and data management.
 
 ## Features
 ### CRUD Operations
