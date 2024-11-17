@@ -1,4 +1,4 @@
-# CumulativeProject
+# Cumulative Project
 This project involves building a Minimum Viable Product (MVP) for managing teachers in a school database. The implementation is done using ASP.NET Core Web API and MVC to perform Create, Read, Update, and Delete (CRUD) operations on the Teachers table of the provided School Database.
 
 ## Project Overview
