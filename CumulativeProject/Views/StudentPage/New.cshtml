@@ -1,0 +1,72 @@
+﻿<style>
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        button:hover {
+            background-color: darkgray;
+        }
+</style>
+
+<div>
+    <nav>
+        <a href="/StudentPage/List">Back to List</a>
+    </nav>
+
+</div>
+
+<div id="container">
+    <h1>Add New Course</h1>
+    <form method="post" action="/StudentPage/Create">
+        <div class="inputrow">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" />
+        </div>
+        <div class="inputrow">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" />
+        </div>
+        <div class="inputrow">
+            <label for="EnrolDate">Enrol Date:</label>
+            <input type="date" name="EnrolDate" id="EnrolDate" />
+        </div>
+        <div class="inputrow">
+            <label for="StudentNumber">Student Number:</label>
+            <input type="text" name="StudentNumber" id="StudentNumber" />
+        </div>
+            <button type="submit"> Add Student </button>
+    </form>
+</div>
+
