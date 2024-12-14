@@ -6,9 +6,9 @@ This project implements:
 2. Integration of ASP.NET Core Web API and MVC to render dynamic, server-side web pages.
 3. Additional features to enhance usability, error handling, and data management.
 ## Components
-1. Web API for accessing teacher, student, and course information.
-2. MVC Framework for building and routing dynamic pages.
-3. MySQL Database Integration using SchoolDbContext.
+ - Web API for accessing teacher, student, and course information.
+ - MVC Framework for building and routing dynamic pages.
+ - MySQL Database Integration using SchoolDbContext.
 ## Features
 ### CRUD Operations
 1. Teachers Table
