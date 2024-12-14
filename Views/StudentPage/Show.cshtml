@@ -1,0 +1,35 @@
+﻿@model CumulativeProject.Models.Student
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>@Model.FirstName @Model.LastName</h1>
+<p><strong>Student Number:</strong> @Model.StudentNumber</p>
+<p><strong>Enrollment Date:</strong> @Model.EnrolDate.ToString("yyyy-MM-dd")</p>
+
+
+<div>
+    <button onclick="window.location.href='/StudentPage/DeleteConfirm/@Model.StudentId'">Delete</button>
+    <button onclick="window.location.href='/StudentPage/Edit/@Model.StudentId'">Update Student</button>
+    <button onclick="window.location.href='/StudentPage/List'">Back To List</button>
+</div>
+
+<style>
+button {
+    gap: 15px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>

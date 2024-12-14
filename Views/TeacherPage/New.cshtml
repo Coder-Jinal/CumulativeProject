@@ -1,0 +1,133 @@
+﻿<style>
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        button:hover {
+            background-color: darkgray;
+        }
+    .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 4px;
+
+</style>
+
+<div>
+
+<nav>
+    <a href="/TeacherPage/List">Back to List</a>
+</nav>
+</div>
+
+<div id="container">
+
+    <h1>Add New Teacher</h1>
+    <form method="post" action="@Url.Action("Create", "TeacherPage")">
+        <div class="inputrow">
+            <label for="FirstName">First Name:</label>
+            <input type = "text" id="FirstName" name="FirstName"/ >
+            <div id="FirstNameError" class="error"></div>
+        </div>
+        <div class="inputrow">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" />
+            <div id="LastNameError" class="error"></div>
+        </div>
+        <div class="inputrow">
+            <label for="HireDate">Hire Date:</label>
+            <input type="date" name="HireDate" id="HireDate" />
+            <div id="HireDateError" class="error"></div>
+        </div>
+        <div class="inputrow">
+            <label for="EmployeeNumber">Employee Number:</label>
+            <input type="text" name="EmployeeNumber" id="EmployeeNumber" />
+            <div id="EmployeeNumberError" class="error"></div>
+        </div>
+        <div class="inputrow">
+            <label for="Salary">Salary:</label>
+            <input type="text" name="Salary" id="Salary" />
+        </div>
+
+         
+         <button type="submit"> Add Teacher </button>
+    </form>
+</div>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+        const hireDateInput = document.getElementById('HireDate').value;
+        const hireDate = new Date(hireDateInput);
+        const today = new Date();
+        const employeeNumber = document.getElementById('EmployeeNumber').value;
+        const firstName = document.getElementById('FirstName').value.trim();
+        const lastName = document.getElementById('LastName').value.trim();
+
+        let isValid = true;
+
+        if (!firstName) {
+            document.getElementById('FirstNameError').textContent = "This field cannot be empty!";
+            isValid = false;
+        }
+
+        if (!lastName) {
+            document.getElementById('LastNameError').textContent = "This field cannot be empty!";
+            isValid = false;
+        }
+
+        if (!hireDateInput) {
+            document.getElementById('HireDateError').textContent = "Hire Date is required!";
+            isValid = false;
+        } else if (hireDate > today) {
+            document.getElementById('HireDateError').textContent = "Hire Date cannot be in the future!";
+            isValid = false;
+        }
+
+        if (!/^T\d+$/.test(employeeNumber)) {
+            document.getElementById('EmployeeNumberError').textContent = "Employee Number must start with 'T' followed by digits!";
+            isValid = false;
+        }
+
+       
+        if (isValid) {
+            this.submit(); 
+        }
+    });
+</script>
+

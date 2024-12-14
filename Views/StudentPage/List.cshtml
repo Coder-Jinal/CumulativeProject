@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CumulativeProject.Models.Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div><a href="/StudentPage/New">Add New Student</a></div>
+
+
+
+<h1>Students</h1>
+
+        @foreach (var student in Model)
+        {
+            <div><a href="/StudentPage/Show/@student.StudentId">@student.FirstName @student.LastName</a></div>
+             
+        }
+   

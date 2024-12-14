@@ -1,0 +1,77 @@
+﻿<style>
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: darkgray;
+    }
+</style>
+
+<div>
+<nav>
+    <a href="/CoursePage/List">Back to List</a>
+</nav>
+
+</div>
+
+<div id="container">
+    <h1>Add New Course</h1>
+    <form method="post" action="/CoursePage/Create">
+        <div class="inputrow">
+            <label for="CourseName">Course Name:</label>
+            <input type="text" id="CourseName" name="CourseName" />
+        </div>
+        <div class="inputrow">
+            <label for="CourseCode">Course Code:</label>
+            <input type="text" id="CourseCode" name="CourseCode" />
+        </div>
+        <div class="inputrow">
+            <label for="StartDate">Start Date:</label>
+            <input type="date" name="StartDate" id="StartDate" />
+        </div>
+        <div class="inputrow">
+            <label for="FinishDate">Finish Date:</label>
+            <input type="date" name="FinishDate" id="FinishDate" />
+        </div>
+        <div class="inputrow">
+            <label for="TeacherId">Teacher ID:</label>
+            <input type="text" name="TeacherId" id="TeacherId" />
+        </div>
+      
+         <button type="submit"> Add Course </button>
+    </form>
+</div>
+

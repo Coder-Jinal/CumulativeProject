@@ -1,0 +1,140 @@
+﻿<style>
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: darkgray;
+    }
+</style>
+
+<div>
+    <nav>
+        <a href="/TeacherPage/Show/@Model.TeacherId">Back to List</a>
+    </nav>
+</div>
+
+<div id="container">
+    <h1>Edit Teacher Details</h1>
+    <form method="post" action="/TeacherPage/Update/@Model.TeacherId" id="editTeacherForm">
+        <div class="inputrow">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" />
+            <span class="error-message" id="FirstNameError"></span>
+        </div>
+        <div class="inputrow">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" value="@Model.LastName" />
+            <span class="error-message" id="LastNameError"></span>
+        </div>
+        <div class="inputrow">
+            <label for="HireDate">Hire Date:</label>
+            <input type="date" name="HireDate" id="HireDate" value="@Model.HireDate.ToString("yyyy-MM-dd")" />
+            <span class="error-message" id="HireDateError"></span>
+        </div>
+        <div class="inputrow">
+            <label for="EmployeeNumber">Teacher No:</label>
+            <input type="text" name="EmployeeNumber" id="EmployeeNumber" value="@Model.EmployeeNumber" />
+            <span class="error-message" id="EmployeeNumberError"></span>
+        </div>
+
+        <div class="inputrow">
+            <label for="Salary">Salary:</label>
+            <input type="number" name="Salary" id="Salary" value="@Model.Salary" step="0.01" min="0" />
+            <span class="error-message" id="SalaryError"></span>
+        </div>
+        <div>
+            <button type="submit">Update Teacher</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("editTeacherForm").addEventListener("submit", function (e) {
+        let isValid = true;
+        const today = new Date();
+        const firstName = document.getElementById("FirstName").value.trim();
+        const lastName = document.getElementById("LastName").value.trim();
+        const hireDate = new Date(document.getElementById("HireDate").value);
+        const hireDateError = document.getElementById("HireDateError");
+        const employeeNumber = document.getElementById("EmployeeNumber").value.trim();
+        const salary = parseFloat(document.getElementById("Salary").value);
+
+
+        document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
+
+        if (!firstName) {
+            document.getElementById("FirstNameError").textContent = "First Name cannot be empty.";
+            isValid = false;
+        }
+
+        if (!lastName) {
+            document.getElementById("LastNameError").textContent = "Last Name cannot be empty.";
+            isValid = false;
+        }
+
+        if (hireDate > today) {
+        hireDateError.textContent = "Hire Date cannot be in the future.";
+        isValid = false;
+        }
+
+        if (!employeeNumber) {
+        document.getElementById("EmployeeNumberError").textContent = "Teacher No cannot be empty.";
+        isValid = false;
+        } 
+        else if (!/^T\d+$/.test(employeeNumber)) {
+
+            document.getElementById("EmployeeNumberError").textContent = "Teacher No must start with  'T' followed by digits!";
+
+            isValid = false;
+        }
+
+        if (salary < 0 || isNaN(salary)) {
+            document.getElementById("SalaryError").textContent = "Salary cannot be less than 0.";
+            isValid = false;
+        }
+
+        if (!isValid) {
+            e.preventDefault(); 
+        }
+    });
+</script>

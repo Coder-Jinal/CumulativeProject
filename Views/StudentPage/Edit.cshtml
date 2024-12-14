@@ -1,0 +1,87 @@
+﻿<style>
+    nav a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: darkslategray;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: darkgray;
+    }
+</style>
+
+<div>
+    <nav>
+        <a href="/StudentPage/Show/@Model.StudentId">Back to List</a>
+    </nav>
+</div>
+
+<div id="container">
+    <h1>Edit Student Details</h1>
+    <form method="post" action="/StudentPage/Update/@Model.StudentId" id="editStudentForm">
+        <div class="inputrow">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" />
+        </div>
+
+        <div class="inputrow">
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" value="@Model.LastName" />
+        </div>
+
+          <div class="inputrow">
+            <label for="StudentNumber">Student No:</label>
+            <input type="text" name="StudentNumber" id="StudentNumber" value="@Model.StudentNumber" />
+        </div>
+
+        <div class="inputrow">
+            <label for="EnrolDate">Enroll Date:</label>
+            <input type="date" name="EnrolDate" id="EnrolDate" value="@Model.EnrolDate.ToString("yyyy-MM-dd")" />
+        </div>
+
+
+
+        <div>
+            <button type="submit">Update Student</button>
+        </div>
+    </form>
+</div>
+
+

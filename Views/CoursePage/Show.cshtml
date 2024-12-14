@@ -1,0 +1,36 @@
+﻿@model CumulativeProject.Models.Course
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Course Name: @Model.CourseName</h1>
+<p><strong>Course Code:</strong> @Model.CourseCode</p>
+<p><strong>Course Starting Date:</strong> @Model.StartDate</p>
+<p><strong>Course Ending Date:</strong> @Model.FinishDate</p>
+
+
+
+<div>
+    <button onclick="window.location.href='/CoursePage/DeleteConfirm/@Model.CourseId'">Delete</button>
+    <button onclick="window.location.href='/CoursePage/Edit/@Model.CourseId'">Update Course</button>
+    <button onclick="window.location.href='/CoursePage/List'">Back To List</button>
+</div>
+
+<style>
+button {
+    gap: 15px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>

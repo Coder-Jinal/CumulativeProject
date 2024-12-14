@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CumulativeProject.Models.Teacher>
+
+<a href="/TeacherPage/New">Add New Teacher</a>
+<h1>Search for a Teacher</h1>
+
+<div>
+    <p>Search for a teacher's hiring date within a specific range:</p>
+    <label for="StartDate">Start Date: </label>
+    <input type="date" id="StartDate" />
+    <label for="EndDate">End Date: </label>
+    <input type="date" id="EndDate" />
+    <button onclick="filterTeachers()">Search</button>
+</div>
+
+<h2>All Teachers</h2>
+@foreach (var Teacher in Model)
+{
+    <div class="teacher" data-hire-date="@Teacher.HireDate.ToString("yyyy-MM-dd")">
+        <a href="/TeacherPage/Show/@Teacher.TeacherId">@Teacher.FirstName @Teacher.LastName</a>
+    </div>
+}
+
+<script>
+    function filterTeachers() {
+        var startDate = document.getElementById("StartDate").value;
+        var endDate = document.getElementById("EndDate").value;
+
+        var teachers = document.querySelectorAll(".teacher");
+
+        teachers.forEach(teacher => {
+            var hireDate = teacher.getAttribute("data-hire-date");
+
+            if (startDate && endDate) {
+                
+                if (hireDate >= startDate && hireDate <= endDate) {
+                    teacher.style.display = "block";
+                } else {
+                    teacher.style.display = "none";
+                }
+            } 
+            else {
+                
+                teacher.style.display = "block";
+            }
+        });
+    }
+</script>

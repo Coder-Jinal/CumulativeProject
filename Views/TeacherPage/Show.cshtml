@@ -1,0 +1,55 @@
+﻿@model CumulativeProject.Models.Teacher
+
+@{
+    var teacher = ViewData["Teacher"] as CumulativeProject.Models.Teacher;
+    var courses = ViewData["Courses"] as List<CumulativeProject.Models.Course>;
+}
+
+
+
+    <h1>@teacher.FirstName @teacher.LastName</h1>
+<p><strong>Teacher No:</strong> @teacher.EmployeeNumber</p>
+<p><strong>Salary:</strong> @teacher.Salary</p>
+<p><strong>Hire Date:</strong> @teacher.HireDate.ToString("yyyy-MM-dd")</p>
+
+
+
+    <h2>Courses Taught</h2>
+    @if (courses == null || !courses.Any())
+    {
+        <p>This teacher does not teach any courses.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var course in courses)
+            {
+                <li>@course.CourseName (@course.CourseCode)</li>
+            }
+        </ul>
+    }
+
+<div>
+    <button onclick="window.location.href='/TeacherPage/DeleteConfirm/@teacher.TeacherId'">Delete</button>
+    <button onclick="window.location.href='/TeacherPage/Edit/@teacher.TeacherId'">Update Teacher</button>
+    <button onclick="window.location.href='/TeacherPage/List'">Back To List</button>
+</div>
+
+<style>
+button {
+    gap: 15px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
