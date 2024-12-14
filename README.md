@@ -2,13 +2,13 @@
 This project involves building a Minimum Viable Product (MVP) for managing Teachers, Students, and Courses in a school database. The implementation uses ASP.NET Core Web API and MVC to perform Create, Read, Update, and Delete (CRUD) operations on the respective tables.
 ## Project Overview
 This project implements:
-1. CRUD Functionality for Teachers, Students, and Courses.
-2. Integration of ASP.NET Core Web API and MVC to render dynamic, server-side web pages.
-3. Additional features to enhance usability, error handling, and data management.
+ 1. CRUD Functionality for Teachers, Students, and Courses.
+ 2. Integration of ASP.NET Core Web API and MVC to render dynamic, server-side web pages.
+ 3. Additional features to enhance usability, error handling, and data management.
 ## Components
- - Web API for accessing teacher, student, and course information.
- - MVC Framework for building and routing dynamic pages.
- - MySQL Database Integration using SchoolDbContext.
+- Web API for accessing teacher, student, and course information.
+- MVC Framework for building and routing dynamic pages.
+- MySQL Database Integration using SchoolDbContext.
 ## Features
 ### CRUD Operations
 1. Teachers Table
@@ -31,12 +31,12 @@ Seamless connection to the MySQL database using SchoolDbContext.
 5. Build and run the project.
 ## Improvement Initiatives
 Earn additional marks by implementing these features:
-1. Error Handling
-Handle cases where an entity does not exist.
-2. Search Functionality
-Add search filters for teachers, students, and courses.
-3. View Enhancements
-Significant layout and styling improvements for all views.
+ 1. Error Handling
+    Handle cases where an entity does not exist.
+ 2. Search Functionality
+    Add search filters for teachers, students, and courses.
+ 3. View Enhancements
+    Significant layout and styling improvements for all views.
 ## Submission Instructions
 1. Push the project to a public repository.
 2. Verify that all required files are included.
